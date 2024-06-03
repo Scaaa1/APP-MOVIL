@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Recuperar Contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item style="padding-top: 50%;">
+    <ion-input labelPlacement="floating" label="Email" placeholder="email@empresa.cl" type="Email">
+      <div slot="label">Email <ion-text color="danger">(Required)</ion-text></div>
+    </ion-input>
+  </ion-item>
+  <ion-button id="present-alert" style="padding-left: 25%;">Envíar Contraseña</ion-button>
+<ion-alert
+  trigger="present-alert"
+  header="Contraseña enviada"
+  message="Favor verifique su bandeja de entrada."
+  [buttons]="alertButtons"
+></ion-alert>
+</ion-content>

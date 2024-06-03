@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+          <ion-title>
+            Login
+          </ion-title>
+          <ion-icon name="airplane-outline" size="large" color="#000000"></ion-icon>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-item style="padding-top: 50%;">
+      <ion-input labelPlacement="stacked" label="Email" placeholder="email@empresa.cl" type="Email">
+        <ion-icon slot="start" name="person-outline" aria-hidden="true"></ion-icon>
+        <ion-button fill="clear" slot="end" aria-label="Show/hide">
+          <ion-icon slot="icon-only" name="eye" aria-hidden="true"></ion-icon>
+        </ion-button>
+      </ion-input>
+    </ion-item>
+<br>
+    <ion-item>
+      <ion-input labelPlacement="stacked" label="Password" placeholder="password" type="password" inputmode="numeric" maxlength="4">
+        <ion-icon slot="start" name="bag-outline" aria-hidden="true"></ion-icon>
+        <ion-button fill="clear" slot="end" aria-label="Show/hide">
+          <ion-icon slot="icon-only" name="eye" aria-hidden="true"></ion-icon>
+        </ion-button>
+      </ion-input>
+    </ion-item>
+  <ion-button expand="full" (click)="navigateToHome()">Ingresar</ion-button>
+
+
+  <ion-button fill="clear" (click)="navigateToRecuperar()">Recuperar contraseña</ion-button>
+  <br>
+  <ion-button fill="clear" (click)="navigateToRegistro()">Crear nuevo usuario</ion-button>
+
+
+</ion-content>

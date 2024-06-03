@@ -1,20 +1,41 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-grid>
+      <ion-row>
+        <ion-title>
+          Home
+        </ion-title>
+        <ion-icon name="person-outline" size="large" color="#000000" (click)="navigateToPerfil()"></ion-icon>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <h2 class="ion-text-center"> Bienvenido {{ persona.Nombre}}</h2>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-card>
+    <img alt="PBB" src="assets/icon/PBB.jpg" (click)="navigateToPBB()" />
+    <ion-card-header>
+      <ion-card-title>Puentes de Embarque</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Aquí encontrarás el estado de todos los puentes
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card>
+    <img alt="Belt" src="assets/icon/belt.jpg" (click)="navigateToBelt()" />
+    <ion-card-header>
+      <ion-card-title>Cintas de Equipaje</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      Aquí encontrarás el estado de todas las cintas de equipaje
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" (click)="navigateToLogin()">Cerrar sesión</ion-button>
+
 </ion-content>

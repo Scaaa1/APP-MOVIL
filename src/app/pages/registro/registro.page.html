@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registrar nuevo usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h1>Completa los campos</h1>
+  <ion-item>
+    <ion-input label="Nombre" placeholder="primer nombre" [(ngModel)]="Nombre" type="text"></ion-input>
+  </ion-item>
+  <br>
+  <ion-item>
+    <ion-input label="Apellido" placeholder="primer apellido" [(ngModel)]="Apellido" type="text"></ion-input>
+  </ion-item>
+  <br>
+  <ion-item>
+    <ion-input label="Email" placeholder="nombre@empresa.cl" [(ngModel)]="Email" type="email"></ion-input>
+  </ion-item>
+  <br>
+  <ion-item>
+    <ion-input label="Password" placeholder="contraseña" [(ngModel)]="Password" type="password" inputmode="numeric" maxlength="4"></ion-input>
+  </ion-item>
+  <br>
+  <br>
+  <ion-button expand="full" (click)="revisar()">Registrar</ion-button>
+  <ion-progress-bar *ngIf="isLoading" type="indeterminate"></ion-progress-bar>
+</ion-content>
