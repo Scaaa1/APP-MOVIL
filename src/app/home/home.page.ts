@@ -13,7 +13,9 @@ export class HomePage implements OnInit {
     Apellido : 'Ibarra'
    }
  
-   arreglo_cadena: string [] =["PBB16", "PBB17", "PBB18"];
+   arreglo_cadena: string [] =["400 HZ", "PCA", "TOLDO"];
+
+   arreglo_belt: string [] = ["Monitores", "Operatividad"];
 
   constructor(private router: Router, 
               private route: ActivatedRoute) {}
@@ -26,7 +28,12 @@ export class HomePage implements OnInit {
   }
 
   navigateToBelt() {
-    this.router.navigate(['/belt']);
+    let NavigationExtras: NavigationExtras ={
+      state:{
+        arreglo_beltEnviado: this.arreglo_belt
+      }
+    }
+    this.router.navigate(['/belt'], NavigationExtras);
   }
 
   navigateToPBB() {

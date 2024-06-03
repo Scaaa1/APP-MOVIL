@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-belt',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BeltPage implements OnInit {
 
-  constructor() { }
+  arreglo_beltRecibida: string[] = [];
+
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) { 
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation()?.extras?.state) {
+        this.arreglo_beltRecibida = this.router.getCurrentNavigation()?.extras?.state?.['arreglo_beltEnviado'] || [];
+      }
+    });
+  }
 
   ngOnInit() {
   }
