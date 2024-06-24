@@ -13,6 +13,7 @@ export class RegistroPage implements OnInit {
   Apellido: string = "";
   Email: string = "";
   Password: string = "";
+  Run: string = "";
   isLoading: boolean = false;
 
   constructor(private router: Router) { }
@@ -43,5 +44,4 @@ export class RegistroPage implements OnInit {
     }, 3000);
   }
 
-  // GUARDAR INFORMACIÓN EN EL STORAGE
 }

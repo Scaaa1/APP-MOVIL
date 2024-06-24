@@ -24,13 +24,12 @@
   </ion-item>
   <br>
   <ion-item>
-    <ion-label>Password </ion-label>
-    <ion-input value= "{{ PasswordUsuario }}" [type]="passwordVisible ? 'text' : ' password '"></ion-input>
+    <ion-input label="Password" value= "{{ PasswordUsuario }}" [type]="passwordVisible ? 'text' : ' password '" placeholder="  contraseña"></ion-input>
     <ion-icon slot="end" name="{{ passwordVisible ? 'eye-outline' : 'eye-off-outline' }}" (click)="togglePasswordVisibility()"></ion-icon>
   </ion-item>  
   <br>
   <ion-item>
-    <ion-input label="Password" placeholder="nueva contraseña" [(ngModel)]="PasswordUsuario" type="password" inputmode="numeric" maxlength="4"></ion-input>
+    <ion-input label="Password" placeholder="repita contraseña" [(ngModel)]="PasswordUsuario" type="password" inputmode="numeric" maxlength="4"></ion-input>
   </ion-item>
   <ion-button expand="full" (click)="revisar()">Modificar</ion-button>
   <ion-progress-bar *ngIf="isLoading" type="indeterminate"></ion-progress-bar>
