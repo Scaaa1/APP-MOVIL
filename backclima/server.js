@@ -17,7 +17,7 @@ const apiKey = '30c2bc33aee72a97cbafd8d77b376813';
 app.get('/weather', async (req, res) => {
     try {
         const city = 'Santiago';
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+        const url = https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric;
         
         // Realizar solicitud a la API de OpenWeatherMap
         const response = await axios.get(url);
@@ -44,5 +44,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Servidor escuchando en http://localhost:${port}`);
+    console.log(Servidor escuchando en http://localhost:${port});
 });

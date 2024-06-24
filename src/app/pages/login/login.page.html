@@ -16,19 +16,15 @@
       <ion-button fill="clear" slot="end" aria-label="Show/hide">
       </ion-button>
     </ion-input>
-  </ion-item>  
+  </ion-item>
   <br>
   <ion-item>
-    <ion-input [(ngModel)]="password" labelPlacement="stacked" label="Password" placeholder="password" type="password" inputmode="numeric" maxlength="4">
-      <ion-icon slot="start" name="bag-outline" aria-hidden="true"></ion-icon>
-      <ion-button fill="clear" slot="end" aria-label="Show/hide">
-      </ion-button>
-    </ion-input>
+    <ion-input [(ngModel)]="password" labelPlacement="stacked" label="Password" placeholder="password" [type]="passwordVisible ? 'text' : 'password'" inputmode="numeric" maxlength="4">
+    <ion-icon slot="start" name="person-outline" aria-hidden="true"></ion-icon>
+    <ion-button fill="clear" slot="end" aria-label="Show/hide"></ion-button></ion-input>
   </ion-item>
-  <ion-button expand="full" (click)="navigateToHome()">Ingresar</ion-button>
 
+  <ion-button expand="full" (click)="navigateToHome()">Ingresar</ion-button>
   <ion-button fill="clear" (click)="navigateToRecuperar()">Recuperar contraseña</ion-button>
   <ion-button fill="clear" (click)="navigateToRegistro()">Crear nuevo usuario</ion-button>
-
 </ion-content>
-

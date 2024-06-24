@@ -10,9 +10,12 @@ import { Storage } from '@ionic/storage-angular';
 export class LoginPage implements OnInit {
   run: string = "";
   password: string = "";
+  passwordVisible: boolean = false;
   isLoading: boolean = false;
 
   constructor(private router: Router, private storage: Storage) {}
+
+
 
   async ngOnInit() {
     await this.storage.create();
@@ -22,6 +25,7 @@ export class LoginPage implements OnInit {
     try {
       // Guarda el RUN
       await this.storage.set('RutUsuario', this.run);
+      await this.storage.set('PasswordUsuario', this.password);
       // Redirecciona a la página de inicio
       this.router.navigate(['/home']);
     } catch (error) {
