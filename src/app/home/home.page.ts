@@ -1,12 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router, ActivatedRoute } from '@angular/router';
 import { WeatherService } from '../services/weather.service';
+import { Injectable } from '@angular/core';
+import { ToastService } from '../services/toast.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
+
+@Injectable({
+  providedIn: 'root'
+})
+
 export class HomePage implements OnInit {
 
   weather: any;
@@ -22,7 +29,8 @@ export class HomePage implements OnInit {
 
   constructor(private router: Router, 
               private route: ActivatedRoute,
-              private weatherService: WeatherService) {}
+              private weatherService: WeatherService,
+              private toastService: ToastService) {}
 
   ngOnInit() {
     this.weatherService.getWeather().subscribe(data => {
@@ -54,7 +62,11 @@ export class HomePage implements OnInit {
     this.router.navigate(['/pbb'], NavigationExtras);
   }
 
-  navigateToLogin() {
+  async navigateToLogin() {
+    // Mostrar el toast
+    await this.toastService.presentToast('¡Vuelve pronto!', 1200, 'middle', 'custom-toast');
+
+    // Redirigir al login
     this.router.navigate(['/login']);
   }
 
