@@ -18,6 +18,7 @@ export class RegistroPage implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+  
   }
 
   navigateToLogin() {
@@ -37,9 +38,10 @@ export class RegistroPage implements OnInit {
     this.isLoading = true;
 
     setTimeout(() => {
-   // Después de que la tarea se complete, oculta el ion-progress-bar
-   this.isLoading = false;
-  }, 3000);
-
+      // Después de que la tarea se complete, oculta el ion-progress-bar
+      this.isLoading = false;
+    }, 3000);
   }
+
+  // GUARDAR INFORMACIÓN EN EL STORAGE
 }

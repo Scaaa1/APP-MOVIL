@@ -12,10 +12,10 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <h2 class="ion-text-center"> Bienvenido {{ persona.Nombre}}</h2>
+  <h2 class="ion-text-center"> Bienvenido {{persona.Nombre}}</h2>
 
   <ion-card>
-    <img alt="PBB" src="assets/icon/PBB.jpg" (click)="navigateToPBB()" />
+    <img class="images-home" alt="PBB" src="assets/icon/PBB.jpg" (click)="navigateToPBB()" />
     <ion-card-header>
       <ion-card-title>Puentes de Embarque</ion-card-title>
     </ion-card-header>
@@ -26,7 +26,7 @@
   </ion-card>
   
   <ion-card>
-    <img alt="Belt" src="assets/icon/belt.jpg" (click)="navigateToBelt()" />
+    <img class="images-home" alt="Belt" src="assets/icon/belt.jpg" (click)="navigateToBelt()" />
     <ion-card-header>
       <ion-card-title>Cintas de Equipaje</ion-card-title>
     </ion-card-header>

@@ -9,6 +9,8 @@
 
 <ion-content>
   <br>
+  <h2> Modifica tus datos: </h2>
+  <h4>Usuario: {{ runUsuario }}</h4>
   <ion-item>
     <ion-input label="Nombre" placeholder="primer nombre" [(ngModel)]="Nombre" type="text"></ion-input>
   </ion-item>
@@ -24,7 +26,7 @@
   <ion-item>
     <ion-input label="Password" placeholder="contraseña" [(ngModel)]="Password" type="password" inputmode="numeric" maxlength="4"></ion-input>
   </ion-item>
-  <ion-button expand="full" (click)="revisar()">Editar</ion-button>
+  <ion-button expand="full" (click)="revisar()">Modificar</ion-button>
   <ion-progress-bar *ngIf="isLoading" type="indeterminate"></ion-progress-bar>
-  
 </ion-content>
+
