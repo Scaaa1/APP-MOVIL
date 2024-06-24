@@ -1,41 +1,54 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-grid>
-      <ion-row>
-        <ion-title>
-          Home
-        </ion-title>
-        <ion-icon name="person-outline" size="large" color="#000000" (click)="navigateToPerfil()"></ion-icon>
-      </ion-row>
-    </ion-grid>
+    <ion-title>
+      Home
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="navigateToPerfil()">
+        <ion-icon name="person-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <h2 class="ion-text-center"> Bienvenido {{persona.Nombre}}</h2>
+<ion-content [fullscreen]="true" [scrollY]="true">
+  <div class="custom-padding">
+    <h2 class="ion-text-center">Bienvenido {{ persona.Nombre }}</h2>
 
-  <ion-card>
-    <img class="images-home" alt="PBB" src="assets/icon/PBB.jpg" (click)="navigateToPBB()" />
-    <ion-card-header>
-      <ion-card-title>Puentes de Embarque</ion-card-title>
-    </ion-card-header>
-  
-    <ion-card-content>
-      Aquí encontrarás el estado de todos los puentes
-    </ion-card-content>
-  </ion-card>
-  
-  <ion-card>
-    <img class="images-home" alt="Belt" src="assets/icon/belt.jpg" (click)="navigateToBelt()" />
-    <ion-card-header>
-      <ion-card-title>Cintas de Equipaje</ion-card-title>
-    </ion-card-header>
+    <div class="weather-card" *ngIf="weather">
+      <h2>{{ weather.location }}</h2>
+      <h3>Tempeture: {{ weather.temperature }} °C | Wind Speed: {{ weather.windSpeed }} m/s</h3>
+    </div>
+    
+    <div class="loading-container" *ngIf="!weather">
+      <p>Cargando datos del clima...</p>
+    </div>
+    
 
-    <ion-card-content>
-      Aquí encontrarás el estado de todas las cintas de equipaje
-    </ion-card-content>
-  </ion-card>
+    <ion-card (click)="navigateToPBB()">
+      <img class="images-home" alt="PBB" src="assets/icon/PBB.jpg" />
+      <ion-card-header>
+        <ion-card-title>Puentes de Embarque</ion-card-title>
+      </ion-card-header>
 
-  <ion-button expand="block" (click)="navigateToLogin()">Cerrar sesión</ion-button>
+      <ion-card-content>
+        Aquí encontrarás el estado de todos los puentes
+      </ion-card-content>
+    </ion-card>
 
+    <ion-card (click)="navigateToBelt()">
+      <img class="images-home" alt="Belt" src="assets/icon/belt.jpg" />
+      <ion-card-header>
+        <ion-card-title>Cintas de Equipaje</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        Aquí encontrarás el estado de todas las cintas
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button expand="block" (click)="navigateToLogin()" class="ion-margin-top">
+      Cerrar sesión
+    </ion-button>
+  </div>
 </ion-content>

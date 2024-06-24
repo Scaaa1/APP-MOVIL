@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router, ActivatedRoute } from '@angular/router';
+import { WeatherService } from '../services/weather.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,8 @@ import { NavigationExtras, Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
+
+  weather: any;
 
   persona = {
     Nombre : 'Scarlett',
@@ -18,10 +21,16 @@ export class HomePage implements OnInit {
    arreglo_belt: string [] = ["Monitores", "Operatividad"];
 
   constructor(private router: Router, 
-              private route: ActivatedRoute) {}
+              private route: ActivatedRoute,
+              private weatherService: WeatherService) {}
 
   ngOnInit() {
-  }
+    this.weatherService.getWeather().subscribe(data => {
+    this.weather = data;
+ }, error => {
+      console.error('Error al obtener los datos del clima', error);
+  });
+}
 
   navigateToPerfil() {
     this.router.navigate(['/perfil']);

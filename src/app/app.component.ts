@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  weatherData: any;
+  isLoading: boolean = true;
   constructor() {}
 }

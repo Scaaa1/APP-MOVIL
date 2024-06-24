@@ -20,7 +20,7 @@ export class LoginPage implements OnInit {
 
   async navigateToHome() {
     try {
-      // Guarda el RUN en el almacenamiento
+      // Guarda el RUN
       await this.storage.set('RutUsuario', this.run);
       // Redirecciona a la página de inicio
       this.router.navigate(['/home']);
