@@ -7,8 +7,8 @@ const port = 3000;
 
 // Habilitar CORS para permitir solicitudes desde localhost:8101
 app.use(cors({
-    origin: ['http://localhost:8101', 'http://localhost:8102'],
-  }));
+    origin: ['http://localhost:8101', 'http://localhost:8102', 'http://localhost:8103'],
+}));
 
 // API KEY 
 const apiKey = '30c2bc33aee72a97cbafd8d77b376813';

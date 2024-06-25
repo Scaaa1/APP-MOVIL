@@ -13,19 +13,18 @@
 
 <ion-content [fullscreen]="true" [scrollY]="true">
   <div class="custom-padding">
-    <h2 class="ion-text-center">Bienvenido {{ persona.Nombre }}</h2>
+    <h2 class="ion-text-center" [ngStyle]="{'font-size': zoomLevel + 'em'}">Bienvenido {{ persona.Nombre }}</h2>
 
-    <div class="weather-card" *ngIf="weather">
+    <div class="weather-card" *ngIf="weather" [ngStyle]="{'font-size': zoomLevel + 'em'}">
       <h2>{{ weather.location }}</h2>
-      <h3>Tempeture: {{ weather.temperature }} °C | Wind Speed: {{ weather.windSpeed }} m/s</h3>
+      <h3>Temperatura: {{ weather.temperature }} °C | Velocidad del viento: {{ weather.windSpeed }} m/s</h3>
     </div>
     
     <div class="loading-container" *ngIf="!weather">
       <p>Cargando datos del clima...</p>
     </div>
-    
 
-    <ion-card (click)="navigateToPBB()">
+    <ion-card (click)="navigateToPBB()" [ngStyle]="{'font-size': zoomLevel + 'em'}">
       <img class="images-home" alt="PBB" src="assets/icon/PBB.jpg" />
       <ion-card-header>
         <ion-card-title>Puentes de Embarque</ion-card-title>
@@ -36,7 +35,7 @@
       </ion-card-content>
     </ion-card>
 
-    <ion-card (click)="navigateToBelt()">
+    <ion-card (click)="navigateToBelt()" [ngStyle]="{'font-size': zoomLevel + 'em'}">
       <img class="images-home" alt="Belt" src="assets/icon/belt.jpg" />
       <ion-card-header>
         <ion-card-title>Cintas de Equipaje</ion-card-title>
@@ -46,6 +45,13 @@
         Aquí encontrarás el estado de todas las cintas
       </ion-card-content>
     </ion-card>
+
+    <ion-row>
+      <ion-col size="12" class="zoom-buttons">
+        <ion-button (click)="zoomIn()">Zoom In</ion-button>
+        <ion-button (click)="zoomOut()">Zoom Out</ion-button>
+      </ion-col>
+    </ion-row>
 
     <ion-button expand="block" (click)="navigateToLogin()" class="ion-margin-top">
       Cerrar sesión

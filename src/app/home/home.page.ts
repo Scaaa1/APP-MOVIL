@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { NavigationExtras, Router, ActivatedRoute } from '@angular/router';
 import { WeatherService } from '../services/weather.service';
 import { Injectable } from '@angular/core';
@@ -17,56 +17,73 @@ import { ToastService } from '../services/toast.service';
 export class HomePage implements OnInit {
 
   weather: any;
+  zoomLevel: number = 1; 
 
   persona = {
-    Nombre : 'Scarlett',
-    Apellido : 'Ibarra'
-   }
- 
-   arreglo_cadena: string [] =["400 HZ", "PCA", "TOLDO"];
+    Nombre: 'Scarlett',
+    Apellido: 'Ibarra'
+  }
 
-   arreglo_belt: string [] = ["Monitores", "Operatividad"];
+  arreglo_cadena: string[] = ["400 HZ", "PCA", "TOLDO"];
+  arreglo_belt: string[] = ["Monitores", "Operatividad"];
 
-  constructor(private router: Router, 
+  constructor(private router: Router,
               private route: ActivatedRoute,
               private weatherService: WeatherService,
-              private toastService: ToastService) {}
+              private toastService: ToastService,
+              private cdr: ChangeDetectorRef) { }
+
+  zoomIn() {
+    this.zoomLevel += 0.1;
+    this.updateZoom();
+  }
+            
+  zoomOut() {
+    if (this.zoomLevel > 0.1) {
+      this.zoomLevel -= 0.1;
+      this.updateZoom();
+    }
+  }
+            
+  updateZoom() {
+    const cards = document.querySelectorAll('ion-card, ion-card-title, ion-card-content');
+    cards.forEach(card => {
+      (card as HTMLElement).style.fontSize = `${this.zoomLevel}em`;
+    });
+  }
 
   ngOnInit() {
     this.weatherService.getWeather().subscribe(data => {
-    this.weather = data;
- }, error => {
+      this.weather = data;
+    }, error => {
       console.error('Error al obtener los datos del clima', error);
-  });
-}
+    });
+  }
 
   navigateToPerfil() {
     this.router.navigate(['/perfil']);
   }
 
   navigateToBelt() {
-    let NavigationExtras: NavigationExtras ={
-      state:{
+    let navigationExtras: NavigationExtras = {
+      state: {
         arreglo_beltEnviado: this.arreglo_belt
       }
     }
-    this.router.navigate(['/belt'], NavigationExtras);
+    this.router.navigate(['/belt'], navigationExtras);
   }
 
   navigateToPBB() {
-    let NavigationExtras: NavigationExtras ={
-      state:{
+    let navigationExtras: NavigationExtras = {
+      state: {
         arreglo_cadenaEnviado: this.arreglo_cadena
       }
     }
-    this.router.navigate(['/pbb'], NavigationExtras);
+    this.router.navigate(['/pbb'], navigationExtras);
   }
 
   async navigateToLogin() {
-    // Mostrar el toast
-    await this.toastService.presentToast('¡Vuelve pronto!', 1200, 'middle', 'custom-toast');
-
-    // Redirigir al login
+    await this.toastService.presentToast('¡Vuelve pronto!', 1000, 'middle', 'custom-toast');
     this.router.navigate(['/login']);
   }
 
@@ -74,4 +91,3 @@ export class HomePage implements OnInit {
     this.router.navigate(['/home']);
   }
 }
-
