@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Home
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="navigateToPerfil()">
+        <ion-icon name="person-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" [scrollY]="true">
+  <div class="custom-padding">
+    <h2 class="ion-text-center" [ngStyle]="{'font-size': zoomLevel + 'em'}">Bienvenido {{ persona.Nombre }}</h2>
+
+    <div class="weather-card" *ngIf="weather" [ngStyle]="{'font-size': zoomLevel + 'em'}">
+      <h2>{{ weather.location }}</h2>
+      <h3>Temperatura: {{ weather.temperature }} °C | Velocidad del viento: {{ weather.windSpeed }} m/s</h3>
+    </div>
+    
+    <div class="loading-container" *ngIf="!weather">
+      <p>Cargando datos del clima...</p>
+    </div>
+
+    <ion-card (click)="navigateToPBB()" [ngStyle]="{'font-size': zoomLevel + 'em'}">
+      <img class="images-home" alt="PBB" src="assets/icon/PBB.jpg" />
+      <ion-card-header>
+        <ion-card-title>Puentes de Embarque</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        Aquí encontrarás el estado de todos los puentes
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card (click)="navigateToBelt()" [ngStyle]="{'font-size': zoomLevel + 'em'}">
+      <img class="images-home" alt="Belt" src="assets/icon/belt.jpg" />
+      <ion-card-header>
+        <ion-card-title>Cintas de Equipaje</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        Aquí encontrarás el estado de todas las cintas
+      </ion-card-content>
+    </ion-card>
+
+    <ion-row>
+      <ion-col size="12" class="zoom-buttons">
+        <ion-button (click)="zoomIn()">Zoom In</ion-button>
+        <ion-button (click)="zoomOut()">Zoom Out</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-button expand="block" (click)="navigateToLogin()" class="ion-margin-top">
+      Cerrar sesión
+    </ion-button>
+  </div>
+</ion-content>

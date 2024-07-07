@@ -1,0 +1,23 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
+@Component({
+  selector: 'app-pbb',
+  templateUrl: './pbb.page.html',
+  styleUrls: ['./pbb.page.scss'],
+})
+export class PBBPage implements OnInit {
+
+  arreglo_cadenaRecibida: string[] = [];
+
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation()?.extras?.state) {
+        this.arreglo_cadenaRecibida = this.router.getCurrentNavigation()?.extras?.state?.['arreglo_cadenaEnviado'] || [];
+      }
+    });
+  }
+
+  ngOnInit() {
+  }
+}

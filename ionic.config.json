@@ -1,0 +1,13 @@
+{
+  "name": "AplicacionMovil",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "proxies": [
+    {
+      "path": "/weather",
+      "proxyUrl": "http://localhost:3000/weather"
+    }
+  ]
+}

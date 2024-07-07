@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br>
+  <h2> Modifica tus datos: </h2>
+  <h4>Run: {{ runUsuario }}</h4>
+  <ion-item>
+    <ion-input label="Nombre" placeholder="primer nombre" [(ngModel)]="Nombre" type="text"></ion-input>
+  </ion-item>
+  <br>
+  <ion-item>
+    <ion-input label="Apellido" placeholder="primer apellido" [(ngModel)]="Apellido" type="text"></ion-input>
+  </ion-item>
+  <br>
+  <ion-item>
+    <ion-input label="Email" placeholder="nombre@empresa.cl" [(ngModel)]="Email" type="email"></ion-input>
+  </ion-item>
+  <br>
+  <ion-item>
+    <ion-input label="Password" value= "{{ PasswordUsuario }}" [type]="passwordVisible ? 'text' : ' password '" placeholder="  contraseña"></ion-input>
+    <ion-icon slot="end" name="{{ passwordVisible ? 'eye-outline' : 'eye-off-outline' }}" (click)="togglePasswordVisibility()"></ion-icon>
+  </ion-item>  
+  <br>
+  <ion-item>
+    <ion-input label="Password" placeholder="repita contraseña" [(ngModel)]="PasswordUsuario" type="password" inputmode="numeric" maxlength="4"></ion-input>
+  </ion-item>
+  <ion-button expand="full" (click)="revisar()">Modificar</ion-button>
+  <ion-progress-bar *ngIf="isLoading" type="indeterminate"></ion-progress-bar>
+</ion-content>
+
