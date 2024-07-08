@@ -10,14 +10,12 @@ export class PBBPage implements OnInit {
 
   arreglo_cadenaRecibida: string[] = [];
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
-    this.activatedRoute.queryParams.subscribe(params => {
-      if (this.router.getCurrentNavigation()?.extras?.state) {
-        this.arreglo_cadenaRecibida = this.router.getCurrentNavigation()?.extras?.state?.['arreglo_cadenaEnviado'] || [];
-      }
-    });
-  }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
+    
+    if (this.activatedRoute.snapshot.queryParams) {
+      this.arreglo_cadenaRecibida = this.activatedRoute.snapshot.queryParams['arreglo_cadenaEnviado'] || [];
+    }
   }
 }

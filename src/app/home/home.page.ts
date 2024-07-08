@@ -1,34 +1,27 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { NavigationExtras, Router, ActivatedRoute } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { WeatherService } from '../services/weather.service';
-import { Injectable } from '@angular/core';
 import { ToastService } from '../services/toast.service';
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss'],
 })
-
-@Injectable({
-  providedIn: 'root'
-})
-
 export class HomePage implements OnInit {
 
   weather: any;
-  zoomLevel: number = 1; 
+  zoomLevel: number = 1;
 
   persona = {
     Nombre: 'Scarlett',
     Apellido: 'Ibarra'
-  }
+  };
 
   arreglo_cadena: string[] = ["400 HZ", "PCA", "TOLDO"];
   arreglo_belt: string[] = ["Monitores", "Operatividad"];
 
   constructor(private router: Router,
-              private route: ActivatedRoute,
               private weatherService: WeatherService,
               private toastService: ToastService,
               private cdr: ChangeDetectorRef) { }
@@ -37,18 +30,18 @@ export class HomePage implements OnInit {
     this.zoomLevel += 0.1;
     this.updateZoom();
   }
-            
+
   zoomOut() {
     if (this.zoomLevel > 0.1) {
       this.zoomLevel -= 0.1;
       this.updateZoom();
     }
   }
-            
+
   updateZoom() {
     const cards = document.querySelectorAll('ion-card, ion-card-title, ion-card-content');
     cards.forEach(card => {
-      (card as HTMLElement).style.fontSize = `${this.zoomLevel}em`;
+      (card as HTMLElement).style.fontSize = `${this.zoomLevel}em`; // Ajuste aquí
     });
   }
 
@@ -69,7 +62,7 @@ export class HomePage implements OnInit {
       state: {
         arreglo_beltEnviado: this.arreglo_belt
       }
-    }
+    };
     this.router.navigate(['/belt'], navigationExtras);
   }
 
@@ -78,7 +71,7 @@ export class HomePage implements OnInit {
       state: {
         arreglo_cadenaEnviado: this.arreglo_cadena
       }
-    }
+    };
     this.router.navigate(['/pbb'], navigationExtras);
   }
 

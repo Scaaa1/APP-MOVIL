@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button default-href="#"></ion-back-button>
@@ -8,7 +8,6 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
   <ion-card>
     <ion-card-header>
       <ion-card-title>Puentes de embarque</ion-card-title>
@@ -17,38 +16,37 @@
     <ion-card-content>
       <ion-list>
         <ion-item>
-          <ion-thumbnail slot="start">
+          <ion-thumbnail slot="start" class="thumbnail-container">
             <img alt="Silhouette of mountains" src="assets/icon/icon.jpg" />
+            <div class="overlay-number">17</div>
           </ion-thumbnail>
           <ion-label>{{arreglo_cadenaRecibida}}</ion-label>
         </ion-item>
-  
+
         <ion-item>
-          <ion-thumbnail slot="start">
+          <ion-thumbnail slot="start" class="thumbnail-container">
             <img alt="Silhouette of mountains" src="assets/icon/icon.jpg" />
+            <div class="overlay-number">18</div>
           </ion-thumbnail>
           <ion-label>{{arreglo_cadenaRecibida}}</ion-label>
         </ion-item>
-  
+
         <ion-item>
-          <ion-thumbnail slot="start">
+          <ion-thumbnail slot="start" class="thumbnail-container">
             <img alt="Silhouette of mountains" src="assets/icon/icon.jpg" />
+            <div class="overlay-number">19</div>
           </ion-thumbnail>
           <ion-label>{{arreglo_cadenaRecibida}}</ion-label>
         </ion-item>
-  
+
         <ion-item lines="none">
-          <ion-thumbnail slot="start">
+          <ion-thumbnail slot="start" class="thumbnail-container">
             <img alt="Silhouette of mountains" src="assets/icon/icon.jpg" />
+            <div class="overlay-number">20</div>
           </ion-thumbnail>
           <ion-label>{{arreglo_cadenaRecibida}}</ion-label>
         </ion-item>
       </ion-list>
     </ion-card-content>
   </ion-card>
-  <!-- <ion-title size="large">PBB</ion-title>
-  <div>Hola este es un page</div>
-  <div> {{arreglo_cadenaRecibida}}</div> -->
-
-  
 </ion-content>

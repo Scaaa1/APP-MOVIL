@@ -1,12 +1,34 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { BELTPage } from './belt.page';
+import { ActivatedRoute } from '@angular/router';
+import { BeltPage } from './belt.page';
 
-describe('BELTPage', () => {
-  let component: BELTPage;
-  let fixture: ComponentFixture<BELTPage>;
+describe('BeltPage', () => {
+  let component: BeltPage;
+  let fixture: ComponentFixture<BeltPage>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [BeltPage],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            queryParams: {
+              subscribe: () => {}
+            },
+            snapshot: {
+              paramMap: {
+                get: (key: string) => 'some-value'
+              }
+            }
+          }
+        }
+      ]
+    }).compileComponents();
+  });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BELTPage);
+    fixture = TestBed.createComponent(BeltPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -15,3 +37,4 @@ describe('BELTPage', () => {
     expect(component).toBeTruthy();
   });
 });
+

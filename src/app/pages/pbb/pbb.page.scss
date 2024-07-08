@@ -1,0 +1,20 @@
+.thumbnail-container {
+    position: relative;
+  }
+  
+  .overlay-number {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+    color: white; /* Color del texto */
+    padding: 5px; /* Espaciado interno */
+    border-radius: 50%; /* Forma circular */
+    width: 24px; /* Ancho del círculo */
+    height: 24px; /* Alto del círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px; /* Tamaño de fuente */
+  }
+  

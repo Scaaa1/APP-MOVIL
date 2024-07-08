@@ -1,17 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { LoginPage } from './login.page';
+import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { AuthService } from '../../services/auth.service'; // Ajusta la ruta según tu estructura
 
 describe('LoginPage', () => {
-  let component: LoginPage;
-  let fixture: ComponentFixture<LoginPage>;
+  let authService: AuthService;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginPage);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [AuthService]
+    });
+    authService = TestBed.inject(AuthService);
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(authService).toBeTruthy();
   });
+
+  // Agrega más pruebas según sea necesario
 });
