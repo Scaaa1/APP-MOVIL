@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { AuthService } from '../../services/auth.service'; // Ajusta la ruta según tu estructura
+import { AuthService } from '../../services/auth.service';
 
 describe('LoginPage', () => {
   let authService: AuthService;
@@ -16,6 +16,4 @@ describe('LoginPage', () => {
   it('should create', () => {
     expect(authService).toBeTruthy();
   });
-
-  // Agrega más pruebas según sea necesario
 });

@@ -18,3 +18,27 @@
     font-size: 14px; /* Tamaño de fuente */
   }
   
+  .thumbnail-container {
+    position: relative;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .overlay-number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2px 5px;
+    border-radius: 3px;
+  }
+  
+  ion-label, ion-input {
+    margin-left: 10px;
+  }
+  
+  ion-button {
+    margin-left: auto;
+  }
+  

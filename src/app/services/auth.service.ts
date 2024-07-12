@@ -15,8 +15,13 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+  // Método para registrar un nuevo usuario
+  registrarUsuario(run: string, password: string): void {
+    this.authorizedUsers.push({ run, password });
+  }
+
   authenticate(run: string, password: string): Observable<boolean> {
-    // Verifica credenciales
+    //  esto verifica credenciales
     const isAuthorized = this.authorizedUsers.some(user => user.run === run && user.password === password);
     
     return of(isAuthorized);

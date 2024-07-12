@@ -41,7 +41,7 @@ export class HomePage implements OnInit {
   updateZoom() {
     const cards = document.querySelectorAll('ion-card, ion-card-title, ion-card-content');
     cards.forEach(card => {
-      (card as HTMLElement).style.fontSize = `${this.zoomLevel}em`; // Ajuste aquí
+      (card as HTMLElement).style.fontSize = `${this.zoomLevel}em`;
     });
   }
 

@@ -20,4 +20,10 @@ export class BeltPage implements OnInit {
 
   ngOnInit() {
   }
+
+  editarItem(itemIndex: number) {
+    console.log('Editar ítem:', itemIndex);
+    // Aquí puedes añadir la lógica para editar el ítem, por ejemplo:
+    // Navegar a una página de edición o abrir un modal
+  }
 }

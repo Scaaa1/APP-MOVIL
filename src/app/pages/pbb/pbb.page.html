@@ -20,7 +20,10 @@
             <img alt="Silhouette of mountains" src="assets/icon/icon.jpg" />
             <div class="overlay-number">17</div>
           </ion-thumbnail>
-          <ion-label>{{arreglo_cadenaRecibida}}</ion-label>
+          <ion-label>{{ arreglo_cadenaRecibida[0] }}</ion-label>
+          <ion-button slot="end" fill="clear" (click)="editarItem(0)">
+            <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+          </ion-button>
         </ion-item>
 
         <ion-item>
@@ -28,7 +31,10 @@
             <img alt="Silhouette of mountains" src="assets/icon/icon.jpg" />
             <div class="overlay-number">18</div>
           </ion-thumbnail>
-          <ion-label>{{arreglo_cadenaRecibida}}</ion-label>
+          <ion-label>{{ arreglo_cadenaRecibida[1] }}</ion-label>
+          <ion-button slot="end" fill="clear" (click)="editarItem(1)">
+            <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+          </ion-button>
         </ion-item>
 
         <ion-item>
@@ -36,7 +42,10 @@
             <img alt="Silhouette of mountains" src="assets/icon/icon.jpg" />
             <div class="overlay-number">19</div>
           </ion-thumbnail>
-          <ion-label>{{arreglo_cadenaRecibida}}</ion-label>
+          <ion-label>{{ arreglo_cadenaRecibida[2] }}</ion-label>
+          <ion-button slot="end" fill="clear" (click)="editarItem(2)">
+            <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+          </ion-button>
         </ion-item>
 
         <ion-item lines="none">
@@ -44,7 +53,10 @@
             <img alt="Silhouette of mountains" src="assets/icon/icon.jpg" />
             <div class="overlay-number">20</div>
           </ion-thumbnail>
-          <ion-label>{{arreglo_cadenaRecibida}}</ion-label>
+          <ion-label>{{ arreglo_cadenaRecibida[3] }}</ion-label>
+          <ion-button slot="end" fill="clear" (click)="editarItem(3)">
+            <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+          </ion-button>
         </ion-item>
       </ion-list>
     </ion-card-content>

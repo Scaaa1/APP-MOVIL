@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.page.html',
   styleUrls: ['./registro.page.scss'],
 })
-export class RegistroPage implements OnInit {
+export class RegistroPage {
 
-  // DECLARACIÓN DE VARIABLES
   Nombre: string = "";
   Apellido: string = "";
   Email: string = "";
@@ -16,10 +16,28 @@ export class RegistroPage implements OnInit {
   Run: string = "";
   isLoading: boolean = false;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
-  ngOnInit() {
-  
+  revisar() {
+    this.isLoading = true;
+
+    // Simulación de proceso de registro (puedes agregar validaciones aquí)
+    setTimeout(() => {
+      // Llamar al servicio para registrar usuario
+      this.authService.registrarUsuario(this.Run, this.Password);
+      
+      // Limpiar campos del formulario después del registro
+      this.Run = '';
+      this.Nombre = '';
+      this.Apellido = '';
+      this.Email = '';
+      this.Password = '';
+
+      this.isLoading = false;
+    }, 2000); // Simulación de tiempo de respuesta de servidor (2 segundos)
   }
 
   navigateToLogin() {
@@ -29,19 +47,4 @@ export class RegistroPage implements OnInit {
   navigateToHome() {
     this.router.navigate(['/home'], { queryParams: { Nombre: this.Nombre } });
   }
-  
-  revisar() {
-    // Lógica para el método revisar
-    console.log('Nombre:', this.Nombre);
-    console.log('Apellido:', this.Apellido);
-    console.log('Email:', this.Email);
-    console.log('Password:', this.Password);
-    this.isLoading = true;
-
-    setTimeout(() => {
-      // Después de que la tarea se complete, oculta el ion-progress-bar
-      this.isLoading = false;
-    }, 3000);
-  }
-
 }
