@@ -26,7 +26,5 @@ export class PBBPage implements OnInit {
   }
   editarItem(itemIndex: number) {
     console.log('Editar ítem:', itemIndex);
-    // Aquí puedes añadir la lógica para editar el ítem, por ejemplo:
-    // Navegar a una página de edición o abrir un modal
   }
 }
